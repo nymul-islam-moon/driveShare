@@ -54,3 +54,18 @@ Thumbs.db
 # Sessions
 .sessions/
 *.db
+
+# Node.js / Frontend
+node_modules/
+npm-debug.log
+yarn-error.log
+frontend/build/
+frontend/.eslintcache
+frontend/coverage/
+
+# React specific
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
