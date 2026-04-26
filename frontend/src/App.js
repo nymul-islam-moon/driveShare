@@ -55,7 +55,8 @@ function App() {
   };
 
   const handleAuthenticateAndOpen = () => {
-    const loginUrl = `${API_BASE_URL}/auth/login?redirect=${window.location.origin}`;
+    const redirectUrl = window.location.origin;
+    const loginUrl = `${API_BASE_URL}/auth/login?redirect=${encodeURIComponent(redirectUrl)}`;
     setLoading(true);
     window.location.href = loginUrl;
   };

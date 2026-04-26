@@ -221,7 +221,10 @@ def callback(request: Request):
         "token_expires_at": (datetime.utcnow() + timedelta(seconds=3600)).isoformat() + "Z",
         "refresh_token_obtained_at": datetime.utcnow().isoformat() + "Z",
     }
-    redirect_url = request.session.pop("redirect_after_auth", "/")
+    redirect_url = request.session.pop("redirect_after_auth", None)
+    # Always redirect to frontend, not backend root
+    if not redirect_url or redirect_url == "/":
+        redirect_url = "http://localhost:4000"
     return RedirectResponse(url=redirect_url)
 
 
