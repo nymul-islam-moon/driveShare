@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:9999';
+const API_BASE_URL = 'http://localhost:9999';
 
 export default function TokenInfo() {
   const [tokenData, setTokenData] = useState(null);

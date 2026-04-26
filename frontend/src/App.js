@@ -4,8 +4,8 @@ import './App.css';
 import DownloadModal from './components/DownloadModal';
 import TokenInfo from './pages/TokenInfo';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:9999';
-const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY || '';
+const API_BASE_URL = 'http://localhost:9999';
+const API_KEY = 'AIzaSyB_5UXYtyXLgVHeBvN-jwRwRKKz5aT2qcQ';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);

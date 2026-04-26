@@ -29,25 +29,25 @@ app = FastAPI(title="DriveShare API")
 # CORS middleware for frontend communication
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:9999"],
+    allow_origins=["http://localhost:4000", "http://localhost:9999"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # Session middleware
-app.add_middleware(SessionMiddleware, secret_key=os.environ.get("SESSION_SECRET", "your-secret-key-change-in-production"))
+app.add_middleware(SessionMiddleware, secret_key="your-super-secret-key-change-this-in-production-12345")
 
-CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", "")
-CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", "")
-TOKEN_URI = os.environ.get("GOOGLE_TOKEN_URI", "https://oauth2.googleapis.com/token")
-REDIRECT_URI = os.environ.get("GOOGLE_REDIRECT_URI", "http://localhost:9999/auth/callback")
+CLIENT_ID = "529976078234-g7hvcgdo98odgqbfkamqp9fhho2auqk5.apps.googleusercontent.com"
+CLIENT_SECRET = "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"
+TOKEN_URI = "https://oauth2.googleapis.com/token"
+REDIRECT_URI = "http://localhost:9999/auth/callback"
 SCOPES = [
     "https://www.googleapis.com/auth/drive",
     "https://www.googleapis.com/auth/drive.file"
 ]
 CHUNK_SIZE = 10 * 1024 * 1024
-API_KEY = os.environ.get("GOOGLE_API_KEY", "")
+API_KEY = "AIzaSyB_5UXYtyXLgVHeBvN-jwRwRKKz5aT2qcQ"
 
 def get_drive_service(creds):
     return build("drive", "v3", credentials=creds)
@@ -560,7 +560,7 @@ def picker(request: Request):
                                 body: JSON.stringify({{files: files}})
                             }}).then(() => {{
                                 // Redirect back to frontend
-                                window.location.href = 'http://localhost:3000';
+                                window.location.href = 'http://localhost:4000';
                             }}).catch(err => {{
                                 console.error('Error saving files:', err);
                                 alert('Error: ' + err.message);
